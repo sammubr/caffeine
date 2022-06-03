@@ -18,7 +18,7 @@ public class CarEntity {
     @Id
     private String id;
 
-    @Indexed(unique=true)
+    @Indexed(unique = true)
     private String description;
 
     private Integer cylinders;

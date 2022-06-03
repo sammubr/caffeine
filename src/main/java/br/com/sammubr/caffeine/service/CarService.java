@@ -3,6 +3,7 @@ package br.com.sammubr.caffeine.service;
 import br.com.sammubr.caffeine.entity.CarEntity;
 import br.com.sammubr.caffeine.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CarService {
 
     private final CarRepository carRepository;
@@ -28,6 +30,7 @@ public class CarService {
     }
 
     public Mono<CarEntity> findOne(String id) {
+        log.info("Find car in db by id {}", id);
         return carRepository.findById(id);
     }
 }

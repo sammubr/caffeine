@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class CarCacheService implements CarInterface {
 
     Cache<String, Mono<CarEntity>> cache = Caffeine.newBuilder()
-            .expireAfterWrite(1, TimeUnit.MINUTES)
+            .expireAfterWrite(5, TimeUnit.SECONDS)
             .maximumSize(100)
             .build();
 

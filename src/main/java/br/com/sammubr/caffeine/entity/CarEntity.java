@@ -1,5 +1,6 @@
 package br.com.sammubr.caffeine.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -25,5 +26,6 @@ public class CarEntity {
 
     private String origin;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDate year;
 }

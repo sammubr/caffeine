@@ -3,3 +3,5 @@ spring:
     mongodb:
       uri: mongodb://localhost/test
       auto-index-creation: true
+solr:
+  url: http://localhost:8983/solr

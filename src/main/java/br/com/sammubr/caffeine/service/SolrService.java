@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -27,7 +28,7 @@ public class SolrService {
         return solrWebClient.select(solrSelectRequest);
     }
 
-    public Mono<SolrResponse<JsonNode>> indexCar(String id) {
+    public Mono<ResponseEntity<Void>> indexCar(String id) {
         return carService.findOne(id)
                 .flatMap(carEntity -> {
                     HashMap<String, Object> map = new HashMap<>();

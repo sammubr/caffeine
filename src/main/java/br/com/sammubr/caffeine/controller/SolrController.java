@@ -6,6 +6,7 @@ import br.com.sammubr.caffeine.webclient.response.SolrResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ public class SolrController {
     }
 
     @GetMapping(value = "/index/car/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<SolrResponse<JsonNode>> indexCar(@PathVariable String id) {
+    public Mono<ResponseEntity<Void>> indexCar(@PathVariable String id) {
         return solrService.indexCar(id);
     }
 
